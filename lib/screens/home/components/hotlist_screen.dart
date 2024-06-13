@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class HorizontalContainer extends StatelessWidget {
   const HorizontalContainer({
-    super.key, required this.img, required this.name,
+    super.key,
+    required this.img,
+    required this.name,
   });
 
   final String img;
@@ -11,24 +13,30 @@ class HorizontalContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 15),
+      padding: const EdgeInsets.only(left: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 150,
-            width: 145,
+            height: 115,
+            width: 130,
             decoration: BoxDecoration(
               color: Colors.white,
+              borderRadius: BorderRadius.circular(5),
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage(img),
               ),
             ),
           ),
-          const SizedBox(height: 8,),
-          Text(name, style: const TextStyle(
-              color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500),),
+          const SizedBox(
+            height: 8,
+          ),
+          Text(
+            name,
+            style: const TextStyle(
+                color: Colors.white, fontSize: 17, fontWeight: FontWeight.w500),
+          ),
         ],
       ),
     );

@@ -6,12 +6,12 @@ List hotSongsList = [
   },
   {
     'image' : 'assets/img/mast-magan.jpg',
-    'title' : "Man Mast Magan",
+    'title' : "Mast Magan",
     'subtitle' : 'Arijit Singh',
   },
   {
     'image' : 'assets/img/raataan.jpg',
-    'title' : "Raatan Lambiyaan",
+    'title' : "Ratan Lambiyan",
     'subtitle' : 'Asees Kaur and Jubin Nautiya',
   },
   {

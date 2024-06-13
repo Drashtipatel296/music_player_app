@@ -20,7 +20,7 @@ AppBar appbar() {
         size: 25,
       ),
       SizedBox(
-        width: 15,
+        width: 20,
       ),
       Icon(
         Icons.person,
@@ -28,7 +28,7 @@ AppBar appbar() {
         size: 25,
       ),
       SizedBox(
-        width: 10,
+        width: 15,
       ),
     ],
   );

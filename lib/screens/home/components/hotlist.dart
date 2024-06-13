@@ -6,17 +6,17 @@ Padding hotlist() {
     child: Row(
       children: [
         Text(
-          'Hotlist',
+          'Recently Played',
           style: TextStyle(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: 18,
               fontWeight: FontWeight.bold),
         ),
         Spacer(),
         Text(
           'MORE',
           style: TextStyle(
-              fontSize: 14,
+              fontSize: 13,
               fontWeight: FontWeight.bold,
               color: Colors.grey),
         ),

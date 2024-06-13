@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../provider/bottom_provider.dart';
-import '../../provider/music_provider.dart';
 import 'components/bottom_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,11 +12,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  @override
-  void initState() {
-    Provider.of<MusicProvider>(context, listen: false).onMusic();
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   Provider.of<MusicProvider>(context, listen: false).onMusic();
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {

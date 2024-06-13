@@ -1,25 +1,34 @@
+import 'dart:developer';
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
+import 'package:music_player_app/utils/music_list.dart';
 
 class AudioPlayerProvider with ChangeNotifier {
   final AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
   double _sliderValue = 0.0;
   double _maxDuration = 0.0;
+  bool _isPlaying = false;
+  int songIndex = 0;
 
   double get sliderValue => _sliderValue;
-
+  bool get isPlaying => _isPlaying;
   double get maxDuration => _maxDuration;
 
-  AudioPlayerProvider() {
-    _openAudio();
+  void changeIndex(int index) {
+    songIndex = index;
+    notifyListeners();
   }
 
-  void _openAudio() async {
+  void openAudio() async {
     await _assetsAudioPlayer.open(
-      Audio("assets/audio/duniya.mp3"),
-      autoStart: false,
+      Audio(musicList[songIndex]['music']),
+      autoStart: true,
       showNotification: true,
     );
+    _isPlaying = true;
+    notifyListeners();
+
+    log(musicList[songIndex]['music']);
 
     _assetsAudioPlayer.currentPosition.listen((Duration position) {
       if (_maxDuration != 0.0) {
@@ -39,10 +48,40 @@ class AudioPlayerProvider with ChangeNotifier {
 
   void play() {
     _assetsAudioPlayer.play();
+    _isPlaying = true;
+    notifyListeners();
   }
 
   void pause() {
     _assetsAudioPlayer.pause();
+    _isPlaying = false;
+    notifyListeners();
+  }
+
+  void previousAudio() {
+    if (songIndex > 0) {
+      songIndex--;
+    } else {
+      songIndex = musicList.length - 1;
+    }
+    openAudio();
+  }
+
+  void togglePlayPause() {
+    if (_isPlaying) {
+      pause();
+    } else {
+      play();
+    }
+  }
+
+  void nextAudio() {
+    if (songIndex < musicList.length - 1) {
+      songIndex++;
+    } else {
+      songIndex = 0;
+    }
+    openAudio();
   }
 
   void seek(double seconds) {

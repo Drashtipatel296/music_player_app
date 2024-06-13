@@ -5,7 +5,7 @@ import '../../../provider/bottom_provider.dart';
 
 Material bottomNavigation(BuildContext context) {
   return Material(
-    elevation: 10,
+    elevation: 20,
     color: Colors.grey,
     child: SalomonBottomBar(
       curve: Curves.linear,

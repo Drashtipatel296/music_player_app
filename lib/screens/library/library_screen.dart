@@ -15,7 +15,7 @@ class LibraryScreen extends StatelessWidget {
         title: const Text(
           'Search in Library',
           style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22),
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
         ),
         actions: const [
           Icon(
@@ -32,7 +32,7 @@ class LibraryScreen extends StatelessWidget {
             size: 25,
           ),
           SizedBox(
-            width: 10,
+            width: 15,
           ),
         ],
       ),
@@ -44,73 +44,166 @@ class LibraryScreen extends StatelessWidget {
               children: [
                 Text(
                   'Downloads & Local Music',
-                  style: TextStyle(color: Colors.white,fontSize: 28,fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold),
                 ),
                 Spacer(),
-                Icon(Icons.navigate_next,color: Colors.white,size: 40,),
+                Icon(
+                  Icons.navigate_next,
+                  color: Colors.white,
+                  size: 30,
+                ),
               ],
             ),
-            const SizedBox(height: 30,),
+            const SizedBox(
+              height: 30,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  height: 47,
-                  width: 190,
+                  height: 40,
+                  width: 160,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(50),
                   ),
                   alignment: Alignment.center,
-                  child: Text('Favourite Music',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),),
+                  child: Text(
+                    'Favourite Music',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17),
+                  ),
                 ),
                 Container(
-                  height: 47,
-                  width: 170,
+                  height: 40,
+                  width: 150,
                   decoration: BoxDecoration(
                     color: Colors.grey.shade800,
                     borderRadius: BorderRadius.circular(50),
                   ),
                   alignment: Alignment.center,
-                  child: const Text('My Prodcasts',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
+                  child: const Text(
+                    'My Prodcasts',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17),
+                  ),
                 ),
               ],
             ),
-            const SizedBox(height: 30,),
-            const ListTile(
-              leading: Icon(Icons.music_note_rounded),
-              title: Text('Favourite Songs',style: TextStyle(color: Colors.white,fontSize: 25),),
-              trailing: Icon(Icons.navigate_next,color: Colors.grey,size: 40,),
+            const SizedBox(
+              height: 30,
             ),
-            const SizedBox(height: 20,),
             const ListTile(
-              leading: Icon(Icons.playlist_add_sharp),
-              title: Text('Favourite Playlists',style: TextStyle(color: Colors.white,fontSize: 25),),
-              trailing: Icon(Icons.navigate_next,color: Colors.grey,size: 40,),
+              leading: Icon(
+                Icons.music_note_rounded,
+                color: Colors.white,
+              ),
+              title: Text(
+                '  Favourite Songs',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+              trailing: Icon(
+                Icons.navigate_next,
+                color: Colors.grey,
+                size: 25,
+              ),
             ),
-            const SizedBox(height: 20,),
-            const ListTile(
-              leading: Icon(Icons.playlist_add_circle_outlined),
-              title: Text('My Playlists',style: TextStyle(color: Colors.white,fontSize: 25),),
-              trailing: Icon(Icons.navigate_next,color: Colors.grey,size: 40,),
+            const SizedBox(
+              height: 20,
             ),
-            const SizedBox(height: 20,),
             const ListTile(
-              leading: Icon(Icons.album),
-              title: Text('Favourite Albums',style: TextStyle(color: Colors.white,fontSize: 25),),
-              trailing: Icon(Icons.navigate_next,color: Colors.grey,size: 40,),
+              leading: Icon(
+                Icons.playlist_add_sharp,
+                color: Colors.white,
+              ),
+              title: Text(
+                '  Favourite Playlists',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+              trailing: Icon(
+                Icons.navigate_next,
+                color: Colors.grey,
+                size: 25,
+              ),
             ),
-            const SizedBox(height: 20,),
-            const ListTile(
-              leading: Icon(Icons.video_collection_sharp),
-              title: Text('Favourite Videos',style: TextStyle(color: Colors.white,fontSize: 25),),
-              trailing: Icon(Icons.navigate_next,color: Colors.grey,size: 40,),
+            const SizedBox(
+              height: 20,
             ),
-            const SizedBox(height: 20,),
             const ListTile(
-              leading: Icon(Icons.article_rounded),
-              title: Text('Followed Artists',style: TextStyle(color: Colors.white,fontSize: 25),),
-              trailing: Icon(Icons.navigate_next,color: Colors.grey,size: 40,),
+              leading: Icon(
+                Icons.playlist_add_circle_outlined,
+                color: Colors.white,
+              ),
+              title: Text(
+                '  My Playlists',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+              trailing: Icon(
+                Icons.navigate_next,
+                color: Colors.grey,
+                size: 25,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const ListTile(
+              leading: Icon(
+                Icons.album,
+                color: Colors.white,
+              ),
+              title: Text(
+                '  Favourite Albums',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+              trailing: Icon(
+                Icons.navigate_next,
+                color: Colors.grey,
+                size: 25,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const ListTile(
+              leading: Icon(
+                Icons.video_collection_sharp,
+                color: Colors.white,
+              ),
+              title: Text(
+                '  Favourite Videos',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+              trailing: Icon(
+                Icons.navigate_next,
+                color: Colors.grey,
+                size: 25,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const ListTile(
+              leading: Icon(
+                Icons.article_rounded,
+                color: Colors.white,
+              ),
+              title: Text(
+                '  Followed Artists',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+              trailing: Icon(
+                Icons.navigate_next,
+                color: Colors.grey,
+                size: 25,
+              ),
             ),
           ],
         ),

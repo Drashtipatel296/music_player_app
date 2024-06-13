@@ -1,23 +1,17 @@
-import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../../model/audio_list.dart';
-import '../../model/bollywood_list.dart';
-import '../../model/top_songs_list.dart';
-import '../../provider/music_provider.dart';
+import '../../utils/hotlist.dart';
+import '../../utils/music_list.dart';
 import '../../utils/singer_list.dart';
-import '../home/components/bollywood.dart';
 import '../home/components/hotlist.dart';
 import '../home/components/hotlist_screen.dart';
 import '../home/components/list_tile_screen.dart';
+import '../home/components/more_container.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    MusicProvider musicProviderFalse = Provider.of<MusicProvider>(context, listen: false);
     return Scaffold(
       backgroundColor: Colors.black26,
       appBar: AppBar(
@@ -26,7 +20,7 @@ class SearchScreen extends StatelessWidget {
           'assets/img/logo.png',
         ),
         title: const Text(
-          'Related',
+          'Search',
           style: TextStyle(
               color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22),
         ),
@@ -45,7 +39,7 @@ class SearchScreen extends StatelessWidget {
             size: 25,
           ),
           SizedBox(
-            width: 10,
+            width: 15,
           ),
         ],
       ),
@@ -55,21 +49,42 @@ class SearchScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Container(
+                height: 45,
+                width: 400,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40),
+                  color: Colors.white,
+                ),
+                alignment: Alignment.center,
+                child: TextField(
+                  cursorColor: Colors.black,
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.search,color: Colors.black,),
+                    hintText: 'Search your favourite singer',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 15,),
               const Row(
                 children: [
                   Text(
                     'Host Ranking',
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 28,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),
                   Spacer(),
                   Text(
                     'MORE',
                     style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
+                        color: Colors.grey,
+                        fontSize: 13,
                         fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -78,7 +93,7 @@ class SearchScreen extends StatelessWidget {
                 height: 20,
               ),
               SizedBox(
-                height: 120, // Constrain the height for the horizontal list
+                height: 120,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: singer.length,
@@ -89,41 +104,32 @@ class SearchScreen extends StatelessWidget {
                 ),
               ),
               hotlist(),
-              const SizedBox(height: 15),
+              const SizedBox(height: 20),
               SizedBox(
-                height: 200,
+                height: 160,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: hotSongsList.length,
-                  itemBuilder: (context, index) => InkWell(
-                    onTap: () {
-                      Audio audio = audioList1[index];
-                      musicProviderFalse.assetsAudioPlayer.open(audio);
-                      Navigator.of(context).pushNamed('/detail', arguments: hotSongsList[index]);
-                    },
-                    child: HorizontalContainer(
-                      img: hotSongsList[index]['image'],
-                      name: hotSongsList[index]['title'],
-                    ),
+                  itemBuilder: (context, index) => HorizontalContainer(
+                    img: hotSongsList[index]['image'],
+                    name: hotSongsList[index]['title'],
                   ),
                 ),
               ),
-              bollywood(),
-              const SizedBox(height: 15),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: topList.length,
-                itemBuilder: (context, index) => InkWell(
-                  onTap: () {
-                    Audio audio = audioList2[index];
-                    musicProviderFalse.assetsAudioPlayer.open(audio);
-                    Navigator.of(context).pushNamed('/detail', arguments: topList[index]);
-                  },
-                  child: ListTileScreen(
-                    title: topList[index]['title']!,
-                    subtitle: topList[index]['subtitle']!,
-                    img: topList[index]['image']!,
+              rowContainer(),
+              const SizedBox(height: 10),
+              SizedBox(
+                height: 390,
+                width: double.infinity,
+                child: ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  scrollDirection: Axis.vertical,
+                  itemCount: musicList.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) => ListTileScreen(
+                    title: musicList[index]['title'],
+                    subtitle: musicList[index]['subtitle'],
+                    img: "${musicList[index]['image']}",
                   ),
                 ),
               ),
@@ -138,7 +144,7 @@ class SearchScreen extends StatelessWidget {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 23),
+          margin: EdgeInsets.symmetric(horizontal: 15),
           height: 80,
           width: 80,
           decoration: BoxDecoration(
@@ -156,7 +162,7 @@ class SearchScreen extends StatelessWidget {
         Text(
           name,
           style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.w500, fontSize: 17),
+              color: Colors.white, fontWeight: FontWeight.w500, fontSize: 15),
         ),
       ],
     );
