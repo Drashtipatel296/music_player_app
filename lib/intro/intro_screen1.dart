@@ -17,30 +17,29 @@ class IntroScreen extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(left: 25,top: 70,right: 25),
+          padding: const EdgeInsets.only(left: 25,top: 100,right: 25),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
                 'Life is',
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 45,
+                    fontSize: 35,
                     fontWeight: FontWeight.bold),
               ),
               const Text(
                 'a song, Love is',
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 45,
+                    fontSize: 35,
                     fontWeight: FontWeight.bold),
               ),
               const Text(
                 'the music ...',
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 45,
+                    fontSize: 35,
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(
@@ -51,7 +50,7 @@ class IntroScreen extends StatelessWidget {
                   Navigator.of(context).pushNamed('/home');
                 },
                 child: Container(
-                  height: 60,
+                  height: 55,
                   width: 400,
                   decoration: BoxDecoration(
                     color: const Color(0xff00FFFF),
@@ -62,7 +61,7 @@ class IntroScreen extends StatelessWidget {
                     'Get Started',
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: 22,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
                 ),

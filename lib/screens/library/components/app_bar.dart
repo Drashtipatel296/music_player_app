@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 
-AppBar appbar() {
+AppBar app() {
   return AppBar(
     backgroundColor: Colors.black,
     leading: Image.asset(
       'assets/img/logo.png',
     ),
     title: const Text(
-      'For You',
+      'Search in Library',
       style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-          fontSize: 22),
+          color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
     ),
     actions: const [
       Icon(
@@ -20,7 +18,7 @@ AppBar appbar() {
         size: 25,
       ),
       SizedBox(
-        width: 20,
+        width: 15,
       ),
       Icon(
         Icons.person,

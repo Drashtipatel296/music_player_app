@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'app_bar.dart';
 import '../../../utils/hotlist.dart';
 import '../../../utils/music_list.dart';
 import '../../../provider/slider_provider.dart';
 import '../../../utils/singer_list.dart';
-import 'app_bar_screen.dart';
 import 'hotlist.dart';
 import 'hotlist_screen.dart';
 import 'list_tile_screen.dart';
@@ -23,33 +23,10 @@ class HomePageState extends State<HomePage> {
     final audioProvider = Provider.of<AudioPlayerProvider>(context);
     return Scaffold(
       backgroundColor: Colors.black,
-      // appBar: appbar(),
       body: CustomScrollView(
-        physics: AlwaysScrollableScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         slivers: [
-          SliverAppBar(
-            title: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Hello Everyone',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17),),
-                Text('Good Morning 👋',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 13),),
-              ],
-            ),
-            leading: Padding(
-              padding: const EdgeInsets.all(5),
-              child: CircleAvatar(
-                backgroundImage: AssetImage('assets/img/dp.jpeg'),
-              ),
-            ),
-            backgroundColor: Colors.transparent,
-            expandedHeight: 170,
-            flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                'assets/img/b.jpg',
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          sliverAppbar(),
           SliverToBoxAdapter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

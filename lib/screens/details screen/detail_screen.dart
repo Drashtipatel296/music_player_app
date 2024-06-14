@@ -1,8 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:music_player_app/utils/music_list.dart';
 import 'package:provider/provider.dart';
 import '../../provider/slider_provider.dart';
+import 'components/icons.dart';
+import 'components/icons_view.dart';
+import 'components/slider_text.dart';
+import 'components/slider_view.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({super.key});
@@ -17,7 +20,7 @@ class DetailScreen extends StatelessWidget {
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 28),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 28),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -35,7 +38,7 @@ class DetailScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
             Text(
               musicList[audioProvider.songIndex]['title'],
@@ -45,9 +48,9 @@ class DetailScreen extends StatelessWidget {
                   letterSpacing: 1,
                   fontWeight: FontWeight.bold),
             ),
-            const SizedBox(
-              height: 10,
-            ),
+            // const SizedBox(
+            //   height: 5,
+            // ),
             Text(
               musicList[audioProvider.songIndex]['subtitle'],
               style: const TextStyle(
@@ -70,129 +73,16 @@ class DetailScreen extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(
-                  Icons.add_box_outlined,
-                  color: Colors.grey,
-                  size: 27,
-                ),
-                Icon(
-                  Icons.multitrack_audio,
-                  color: Colors.grey,
-                  size: 27,
-                ),
-                Icon(
-                  Icons.sim_card_download_outlined,
-                  color: Colors.grey,
-                  size: 27,
-                ),
-                Icon(
-                  Icons.favorite_border,
-                  color: Colors.grey,
-                  size: 27,
-                ),
-                Icon(
-                  Icons.more_vert,
-                  color: Colors.grey,
-                  size: 27,
-                ),
-              ],
-            ),
+            showIcons(),
             const SizedBox(
               height: 30,
             ),
-            SliderTheme(
-              data: SliderTheme.of(context).copyWith(
-                trackHeight: 1.5,
-                thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6),
-              ),
-              child: Slider(
-                activeColor: Colors.white,
-                value: audioProvider.sliderValue,
-                max: audioProvider.maxDuration > 0
-                    ? audioProvider.maxDuration
-                    : 1.0,
-                onChanged: (value) {
-                  if (audioProvider.maxDuration > 0) {
-                    audioProvider.seek(value);
-                  }
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text('${audioProvider.sliderValue ~/ 60}:',style: const TextStyle(color: Colors.white),),
-                      Text((audioProvider.sliderValue.toInt() % 60)
-                          .toString()
-                          .padLeft(2, '0'),style: const TextStyle(color: Colors.white),),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text('${audioProvider.maxDuration ~/ 60}:',style: const TextStyle(color: Colors.white),),
-                      Text((audioProvider.maxDuration.toInt() % 60).toString()..padRight(2, '0'),style: const TextStyle(color: Colors.white),),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            slider(context, audioProvider),
+            sliderText(audioProvider),
             const SizedBox(
               height: 15,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Icon(
-                  Icons.menu,
-                  color: Colors.grey,
-                  size: 27,
-                ),
-                IconButton(
-                  onPressed: () {
-                    audioProvider.previousAudio();
-                  },
-                  icon: const Icon(
-                    Icons.skip_previous,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {
-                    audioProvider.togglePlayPause();
-                  },
-                  icon: Icon(
-                    audioProvider.isPlaying
-                        ? CupertinoIcons.pause
-                        : CupertinoIcons.play_arrow_solid,
-                    color: Colors.white,
-                    size: 70,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {
-                    audioProvider.nextAudio();
-                  },
-                  icon: const Icon(
-                    Icons.skip_next,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                ),
-                const Icon(
-                  Icons.queue_music_sharp,
-                  color: Colors.grey,
-                  size: 27,
-                ),
-              ],
-            ),
+            icons(audioProvider),
           ],
         ),
       ),

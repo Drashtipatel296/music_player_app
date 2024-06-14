@@ -56,21 +56,21 @@ class LiveScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Container(
                     height: 70,
                     width: 427,
                     decoration: BoxDecoration(
-                      image: DecorationImage(
+                      image: const DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage('assets/img/2.jpeg'),
+                        image: AssetImage('assets/img/music.webp'),
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8),
                       child: Row(
                         children: [
                           Column(
@@ -92,7 +92,7 @@ class LiveScreen extends StatelessWidget {
                           ),
                           Spacer(),
                           Text(
-                            'GO',
+                            'GO   ',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
@@ -102,10 +102,10 @@ class LiveScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
+                  const SizedBox(
+                    height: 38,
                   ),
-                  Row(
+                  const Row(
                     children: [
                       Text(
                         'Recent',
@@ -125,25 +125,25 @@ class LiveScreen extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 220,),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          const SizedBox(height: 200,),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
             child: Text(
               textAlign: TextAlign.center,
               'Oops, There are no live rooms at the moment. Please come back later.',
-              style: TextStyle(color: Colors.grey,fontSize: 19),
+              style: TextStyle(color: Colors.grey,fontSize: 18),
             ),
           ),
-          SizedBox(height: 30,),
+          const SizedBox(height: 25,),
           Container(
             height: 40,
             width: 150,
             decoration: BoxDecoration(
-              color: Color(0xff00FFFF),
+              color: const Color(0xff00FFFF),
               borderRadius: BorderRadius.circular(30),
             ),
             alignment: Alignment.center,
-            child: Text('Refresh',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+            child: const Text('Refresh',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
           ),
         ],
       ),

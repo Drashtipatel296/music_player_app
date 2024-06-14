@@ -30,12 +30,12 @@ class HorizontalContainer extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 8,
+            height: 15,
           ),
           Text(
             name,
             style: const TextStyle(
-                color: Colors.white, fontSize: 17, fontWeight: FontWeight.w500),
+                color: Colors.white, fontSize: 15, fontWeight: FontWeight.w500),
           ),
         ],
       ),
