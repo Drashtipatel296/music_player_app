@@ -23,87 +23,117 @@ class HomePageState extends State<HomePage> {
     final audioProvider = Provider.of<AudioPlayerProvider>(context);
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: appbar(),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            hotlist(),
-            const SizedBox(height: 15),
-            SizedBox(
-              height: 165,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: singer.length,
-                itemBuilder: (context, index) => HorizontalContainer(
-                  img: singer[index]['img']!,
-                  name: singer[index]['name']!,
-                ),
+      // appBar: appbar(),
+      body: CustomScrollView(
+        physics: AlwaysScrollableScrollPhysics(),
+        slivers: [
+          SliverAppBar(
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Hello Everyone',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17),),
+                Text('Good Morning 👋',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 13),),
+              ],
+            ),
+            leading: Padding(
+              padding: const EdgeInsets.all(5),
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/img/dp.jpeg'),
               ),
             ),
-            rowContainer(),
-            const SizedBox(height: 10),
-            SizedBox(
-              height: 390,
-              width: double.infinity,
-              child: GridView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: musicList.length,
-                shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  mainAxisExtent: 380,
-                ),
-                itemBuilder: (context, index) => InkWell(
-                  onTap: () {
-                    audioProvider.changeIndex(index);
-                    audioProvider.openAudio();
-                    Navigator.of(context)
-                        .pushNamed('/detail', arguments: musicList[index]);
-                  },
-                  child: ListTileScreen(
-                    title: musicList[index]['title'],
-                    subtitle: musicList[index]['subtitle'],
-                    img: "${musicList[index]['image']}",
+            backgroundColor: Colors.transparent,
+            expandedHeight: 170,
+            flexibleSpace: FlexibleSpaceBar(
+              background: Image.asset(
+                'assets/img/b.jpg',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                hotlist(),
+                const SizedBox(height: 15),
+                SizedBox(
+                  height: 165,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: singer.length,
+                    itemBuilder: (context, index) => HorizontalContainer(
+                      img: singer[index]['img']!,
+                      name: singer[index]['name']!,
+                    ),
                   ),
                 ),
-              ),
-            ),
-            hotlist(),
-            const SizedBox(height: 15),
-            SizedBox(
-              height: 175,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: hotSongsList.length,
-                itemBuilder: (context, index) => HorizontalContainer(
-                  img: hotSongsList[index]['image'],
-                  name: hotSongsList[index]['title'],
+                rowContainer(),
+                const SizedBox(height: 10),
+                SizedBox(
+                  height: 390,
+                  width: double.infinity,
+                  child: GridView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: musicList.length,
+                    shrinkWrap: true,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4,
+                      mainAxisExtent: 380,
+                    ),
+                    itemBuilder: (context, index) => InkWell(
+                      onTap: () {
+                        audioProvider.changeIndex(index);
+                        audioProvider.openAudio();
+                        Navigator.of(context)
+                            .pushNamed('/detail', arguments: musicList[index]);
+                      },
+                      child: ListTileScreen(
+                        title: musicList[index]['title'],
+                        subtitle: musicList[index]['subtitle'],
+                        img: "${musicList[index]['image']}",
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            rowContainer(),
-            const SizedBox(height: 20),
-            SizedBox(
-              height: 400,
-              width: double.infinity,
-              child: GridView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: musicList.length,
-                shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  mainAxisExtent: 380,
+                hotlist(),
+                const SizedBox(height: 15),
+                SizedBox(
+                  height: 175,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: hotSongsList.length,
+                    itemBuilder: (context, index) => HorizontalContainer(
+                      img: hotSongsList[index]['image'],
+                      name: hotSongsList[index]['title'],
+                    ),
+                  ),
                 ),
-                itemBuilder: (context, index) => ListTileScreen(
-                  title: musicList[index]['title'],
-                  subtitle: musicList[index]['subtitle'],
-                  img: "${musicList[index]['image']}",
+                rowContainer(),
+                const SizedBox(height: 20),
+                SizedBox(
+                  height: 400,
+                  width: double.infinity,
+                  child: GridView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: musicList.length,
+                    shrinkWrap: true,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4,
+                      mainAxisExtent: 380,
+                    ),
+                    itemBuilder: (context, index) => ListTileScreen(
+                      title: musicList[index]['title'],
+                      subtitle: musicList[index]['subtitle'],
+                      img: "${musicList[index]['image']}",
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -6,7 +6,7 @@ Padding hotlist() {
     child: Row(
       children: [
         Text(
-          'Recently Played',
+          'Your favourite artists',
           style: TextStyle(
               color: Colors.white,
               fontSize: 18,

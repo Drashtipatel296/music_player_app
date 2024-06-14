@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_player_app/intro/intro_screen1.dart';
 import 'package:music_player_app/provider/slider_provider.dart';
+import 'package:music_player_app/screens/home/components/home_page.dart';
 import 'package:provider/provider.dart';
 import 'provider/bottom_provider.dart';
 import 'screens/details screen/detail_screen.dart';

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class IntroScreen extends StatelessWidget {
@@ -10,49 +9,42 @@ class IntroScreen extends StatelessWidget {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
-            opacity: 0.6,
+            opacity: 0.8,
             fit: BoxFit.cover,
-            image: AssetImage('assets/img/intro1.jpeg'),
+            image: AssetImage('assets/img/sp.jpg'),
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(left: 25, top: 450, right: 25),
+          padding: const EdgeInsets.only(left: 25,top: 70,right: 25),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Life is',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 45,
                     fontWeight: FontWeight.bold),
               ),
-              Text(
+              const Text(
                 'a song, Love is',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 45,
                     fontWeight: FontWeight.bold),
               ),
-              Text(
-                'the music',
+              const Text(
+                'the music ...',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 45,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                "Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-                style: TextStyle(color: Colors.white),
-              ),
-              SizedBox(
-                height: 40,
+              const SizedBox(
+                height: 560,
               ),
               InkWell(
                 onTap: () {
@@ -62,24 +54,15 @@ class IntroScreen extends StatelessWidget {
                   height: 60,
                   width: 400,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: const Color(0xff00FFFF),
                     borderRadius: BorderRadius.circular(50),
-                    gradient: LinearGradient(
-                      colors: [
-                        Color(0xffDF34B6),
-                        Color(0xffCB2DD7),
-                        Color(0xffA73DF9),
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
                   ),
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     'Get Started',
                     style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
+                        color: Colors.black,
+                        fontSize: 22,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
