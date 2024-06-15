@@ -57,7 +57,7 @@ class SearchScreen extends StatelessWidget {
                     color: Colors.white,
                   ),
                   alignment: Alignment.center,
-                  child: TextField(
+                  child: const TextField(
                     cursorColor: Colors.black,
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.search,color: Colors.black,),
@@ -67,7 +67,7 @@ class SearchScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 15,),
+              const SizedBox(height: 15,),
               const Row(
                 children: [
                   Text(
@@ -142,7 +142,7 @@ class SearchScreen extends StatelessWidget {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 15),
+          margin: const EdgeInsets.symmetric(horizontal: 15),
           height: 80,
           width: 80,
           decoration: BoxDecoration(
@@ -154,12 +154,12 @@ class SearchScreen extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Text(
           name,
-          style: TextStyle(
+          style: const TextStyle(
               color: Colors.white, fontWeight: FontWeight.w500, fontSize: 15),
         ),
       ],

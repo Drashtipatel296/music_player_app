@@ -19,7 +19,7 @@ class BottomProvider with ChangeNotifier {
   Widget get currentScreen {
     switch (_bottomIndex) {
       case 0:
-        return const HomePage(); // Return HomeScreen here
+        return const HomePage();
       case 1:
         return const SearchScreen();
       case 2:
@@ -27,7 +27,7 @@ class BottomProvider with ChangeNotifier {
       case 3:
         return const LibraryScreen();
       default:
-        return const HomeScreen(); // Default to HomeScreen
+        return const HomeScreen();
     }
   }
 }
