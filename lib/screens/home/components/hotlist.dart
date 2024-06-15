@@ -9,14 +9,14 @@ Padding hotlist() {
           'Your favourite artists',
           style: TextStyle(
               color: Colors.white,
-              fontSize: 17,
+              fontSize: 16,
               fontWeight: FontWeight.bold),
         ),
         Spacer(),
         Text(
           'MORE',
           style: TextStyle(
-              fontSize: 13,
+              fontSize: 12,
               fontWeight: FontWeight.bold,
               color: Colors.grey),
         ),

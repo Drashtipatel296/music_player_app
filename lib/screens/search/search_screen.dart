@@ -47,24 +47,22 @@ class SearchScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height: 45,
-                width: 400,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(40),
-                  color: Colors.white,
-                ),
-                alignment: Alignment.center,
-                child: TextField(
-                  cursorColor: Colors.black,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search,color: Colors.black,),
-                    hintText: 'Search your favourite singer',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50),
-                      borderSide: BorderSide.none,
+              Center(
+                child: Container(
+                  height: 45,
+                  width: 400,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40),
+                    color: Colors.white,
+                  ),
+                  alignment: Alignment.center,
+                  child: TextField(
+                    cursorColor: Colors.black,
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.search,color: Colors.black,),
+                      hintText: 'Search your favourite singer',
+                      border: InputBorder.none,
                     ),
                   ),
                 ),
@@ -122,7 +120,7 @@ class SearchScreen extends StatelessWidget {
                 height: 390,
                 width: double.infinity,
                 child: ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   itemCount: musicList.length,
                   shrinkWrap: true,

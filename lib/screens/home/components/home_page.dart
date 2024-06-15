@@ -26,11 +26,12 @@ class HomePageState extends State<HomePage> {
       body: CustomScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         slivers: [
-          sliverAppbar(),
+          sliverAppbar(context),
           SliverToBoxAdapter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(height: 10,),
                 hotlist(),
                 const SizedBox(height: 15),
                 SizedBox(

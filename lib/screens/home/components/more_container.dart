@@ -9,13 +9,13 @@ Padding rowContainer() {
           'Made for you',
           style: TextStyle(
               color: Colors.white,
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: FontWeight.bold),
         ),
         Spacer(),
         Text(
           'MORE',
-          style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold,color: Colors.grey),
+          style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold,color: Colors.grey),
         ),
       ],
     ),
