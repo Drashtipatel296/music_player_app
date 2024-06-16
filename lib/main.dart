@@ -30,9 +30,9 @@ class MusicApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/home',
+      initialRoute: '/',
       routes: {
-        // '/': (context) => const SplashScreen(),
+        '/': (context) => const SplashScreen(),
         '/home': (context) => const HomeScreen(),
         '/detail': (context) => const DetailScreen(),
         '/1' : (context) => const IntroScreen(),
