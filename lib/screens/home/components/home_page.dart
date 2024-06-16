@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'app_bar.dart';
@@ -113,6 +114,53 @@ class HomePageState extends State<HomePage> {
           ),
         ],
       ),
+      floatingActionButton: Align(
+        alignment: Alignment.bottomCenter,
+        child: Container(
+          alignment: Alignment.center,
+          height: 65,
+          width: 460,
+          decoration: BoxDecoration(color: Colors.grey.shade900),
+          child: ListTile(
+            leading: Container(
+              height: 55,
+              width: 55,
+              decoration: BoxDecoration(
+                image: const DecorationImage(
+                    image: AssetImage("assets/img/animal.jpg"),
+                    fit: BoxFit.cover),
+                borderRadius: BorderRadius.circular(7),
+              ),
+            ),
+            title: const Text(
+              "Animal",
+              style: TextStyle(fontWeight: FontWeight.w700,color: Colors.white),
+            ),
+            subtitle: const Text("Arijit Singh",style: TextStyle(color: Colors.grey),),
+            trailing: FittedBox(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  CupertinoButton(
+                    onPressed: () {
+                    },
+                    padding: EdgeInsets.zero,
+                    child: const Icon(Icons.play_circle_outline_outlined,size: 30,color: Colors.white,),
+                  ),
+                  CupertinoButton(
+                    onPressed: () {
+                    },
+                    padding: EdgeInsets.zero,
+                    child: const Icon(Icons.queue_music,size: 30,color: Colors.white,),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation:
+      FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 }
